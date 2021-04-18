@@ -1,0 +1,13 @@
+const PLAYLIST_ID = 'PLd-lTb-XbZv3nY-wg_O5pnWValXX_v2rR'
+
+export default ({ $config: { apiKey } }, inject) => {
+  const targetUrl = [
+    'https://www.googleapis.com/youtube/v3/playlistItems',
+    '?part=snippet',
+    `&playlistId=${PLAYLIST_ID}`,
+    '&maxResults=50',
+    `&key=${apiKey}`,
+  ].join('')
+
+  inject('targetUrl', targetUrl)
+}

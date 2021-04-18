@@ -1,23 +1,17 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      fixed
-      app
-    >
+    <v-navigation-drawer v-model="drawer" fixed app>
       <v-row justify="center">
-        <!-- <v-icon size="200">mdi-spotify</v-icon> -->
-        <v-img
+        <img
           src="/kuwatify_logo.png"
-          max-width="170"
-          class="ma-4"
+          width="170"
+          class="mt-8 mb-4 filter drop-shadow-lg"
         />
       </v-row>
       <v-row justify="center" class="mb-2">
-        <h2>{{title}}</h2>
+        <h2 class="text-xl font-bold">Kuwatify</h2>
       </v-row>
-      <v-divider></v-divider>
+      <v-divider />
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -35,153 +29,100 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      fixed
-      app
-      color="#121212"
-      flat
-    >
+    <v-app-bar fixed app color="transparent" flat>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-spacer />
-      <v-text-field
-        value="検索"
-        placeholder="未実装でーす"
-        color="red"
-        light
-        background-color="white"
-        flat
-        rounded
-        solo
-        dense
-        prepend-inner-icon="mdi-magnify"
-        class="pt-7 shrink"
-      ></v-text-field>
-      <!-- <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
+      <v-slide-x-reverse-transition>
+        <v-text-field
+          v-show="search || keywords"
+          v-model="keywords"
+          placeholder="検索"
+          color="red"
+          dark
+          flat
+          rounded
+          solo
+          dense
+          autofocus
+          class="pt-7 shrink"
+          @blur="setSearch(Boolean(keywords))"
+        >
+          <v-icon slot="prepend-inner" color="grey darken-1"
+            >mdi-magnify</v-icon
+          >
+        </v-text-field>
+      </v-slide-x-reverse-transition>
+      <v-icon
+        v-if="$route.path === '/'"
+        v-show="!(search || keywords)"
+        @click="setSearch(true)"
+        >mdi-magnify</v-icon
       >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn> -->
-      <!-- <v-toolbar-title v-text="title" /> -->
     </v-app-bar>
     <v-main>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
-    <v-footer
-      fixed
-      app
-    >
-      <v-row>
-        <v-col></v-col>
-        <v-col cols="10" sm="8" md="6" class="pb-0">
-          <v-row justify="center">
-            <v-icon
-              @click="previous"
-              class="mx-4"
-            >mdi-skip-backward</v-icon>
-            <v-icon
-              v-if="!isPlaying"
-              @click="play"
-              large
-              class="mx-4"
-            >mdi-play-circle-outline</v-icon>
-            <v-icon
-              v-else
-              @click="pause"
-              large
-              class="mx-4"
-            >mdi-pause-circle-outline</v-icon>
-            <v-icon
-              @click="next"
-              class="mx-4"
-            >mdi-skip-forward</v-icon>
-          </v-row>
-          <v-row>
-            <div class="caption">1:43</div>
-            <v-col class="pt-2">
-              <v-progress-linear
-                v-model="progress"
-                buffer-value="100"
-              ></v-progress-linear>
-            </v-col>
-            <div class="caption">5:49</div>
-          </v-row>
-        </v-col>
-        <v-col></v-col>
-      </v-row>
-    <v-bottom-navigation
-      value="value"
-      grow
-      class="hidden-sm-and-up"
-    >
-    <v-btn
-      v-for="(item, i) in items"
-      :key="i"
-      :to="item.to"
-    >
-      <span>{{item.title}}</span>
-      <v-icon>{{item.icon}}</v-icon>
-    </v-btn>
-    </v-bottom-navigation>
+    <v-footer fixed app class="bg-gradient-to-r from-red-500 to-blue-500">
+      <div v-if="$route.path === '/'" class="flex justify-center mb-4">
+        <v-icon class="mx-4" @click="previous()">mdi-skip-backward</v-icon>
+        <v-icon v-if="!isPlaying" large class="mx-4" @click="play()"
+          >mdi-play-circle-outline</v-icon
+        >
+        <v-icon v-else large class="mx-4" @click="pause()"
+          >mdi-pause-circle-outline</v-icon
+        >
+        <v-icon class="mx-4" @click="next()">mdi-skip-forward</v-icon>
+      </div>
+      <v-bottom-navigation grow class="hidden-sm-and-up">
+        <v-btn v-for="(item, i) in items" :key="i" :to="item.to">
+          <span>{{ item.title }}</span>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-btn>
+      </v-bottom-navigation>
     </v-footer>
   </v-app>
 </template>
 
-<script>
-import {mapState} from 'vuex'
-export default {
-  data () {
-    return {
-      drawer: false,
-      items: [
-        {
-          icon: 'mdi-home-variant',
-          title: 'Home',
-          to: '/'
-        },
-        {
-          icon: 'mdi-diamond-stone',
-          title: 'Premium',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      title: 'Kuwatify',
-      progress: 20,
-      value: 'home'
-    }
-  },
-  methods: {
-    play() {
-      this.$store.commit('setIsPlaying', true)
-      this.$nuxt.$emit('play')
-    },
-    pause() {
-      this.$store.commit('setIsPlaying', false)
-      this.$nuxt.$emit('pause')
-    },
-    next() {
-      this.$nuxt.$emit('next')
-    },
-    previous() {
-      this.$nuxt.$emit('previous')
-    }
-  },
-  computed: {
-    ...mapState({
-      isPlaying: 'isPlaying'
-    })
-  }
-}
-</script>
+<script lang="ts">
+import { defineComponent, ref } from '@nuxtjs/composition-api'
+import usePlayer from '../hooks/use-player'
 
-<style lang="scss" scoped>
-.mdi-spotify {
-  transform: rotate(-90deg);
-}
-footer {
-  // margin-bottom: 55px;
-}
-</style>
+const items = [
+  {
+    icon: 'mdi-home-variant',
+    title: 'Home',
+    to: '/',
+  },
+  {
+    icon: 'mdi-diamond-stone',
+    title: 'Premium',
+    to: '/premium',
+  },
+]
+
+export default defineComponent({
+  setup() {
+    const { isPlaying, play, pause, next, previous, keywords } = usePlayer()
+
+    const drawer = ref(false)
+    const search = ref(false)
+
+    function setSearch(value) {
+      search.value = value
+    }
+
+    return {
+      items,
+      drawer,
+      play,
+      pause,
+      next,
+      previous,
+      isPlaying,
+      keywords,
+      search,
+      setSearch,
+    }
+  },
+})
+</script>
