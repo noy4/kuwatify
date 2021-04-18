@@ -9,4 +9,5 @@ Kuwatifyの楽曲を聞くことができるよ
 
 - Nuxt Composition API
 - YouTube Data API
+- Tailwind CSS
 - Composition APIでVuexの代替にトライ（結果△）
