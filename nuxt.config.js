@@ -18,11 +18,15 @@ export default {
     ],
   },
 
-  plugins: ['~/plugins/vue-youtube', '~/plugins/target-url'],
-
   router: {
     base: baseUrl,
   },
+
+  plugins: [
+    '~/plugins/vue-youtube',
+    '~/plugins/target-url',
+    '~/plugins/base-url',
+  ],
 
   components: true,
 
@@ -52,15 +56,7 @@ export default {
     },
   },
 
-  build: {
-    publicPath: '/static/',
-  },
-
-  privateRuntimeConfig: {
-    apiKey: process.env.API_KEY,
-  },
   publicRuntimeConfig: {
-    apiKey:
-      process.env.NODE_ENV !== 'production' ? process.env.API_KEY : undefined,
+    baseUrl,
   },
 }

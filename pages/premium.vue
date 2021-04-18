@@ -4,7 +4,7 @@
     :class="premium ? 'bg-gradient-to-r from-red-500 to-blue-500' : ''"
   >
     <div class="w-48 h-48 mt-4 mb-2">
-      <v-img src="/kuwatify_logo.png" class="filter drop-shadow" />
+      <v-img :src="$baseUrl('kuwatify_logo.png')" class="filter drop-shadow" />
     </div>
     <h2 class="text-3xl font-bold filter drop-shadow mb-4">Kuwatify Premium</h2>
     <div class="w-full max-w-md px-1.5">
@@ -13,10 +13,14 @@
           text
         }}</v-card-text>
         <div class="flex flex-col justify-center items-center">
-          <img v-if="premium" src="/kuwa_composer.png" class="w-40" />
+          <img
+            v-if="premium"
+            :src="$baseUrl('kuwa_composer.png')"
+            class="w-40"
+          />
           <img
             v-else-if="exPremium"
-            src="/kuwa-man.png"
+            :src="$baseUrl('kuwa-man.png')"
             class="w-56 kuwa-man"
           />
           <v-btn

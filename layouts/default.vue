@@ -3,7 +3,7 @@
     <v-navigation-drawer v-model="drawer" fixed app>
       <v-row justify="center">
         <img
-          src="/kuwatify_logo.png"
+          :src="$baseUrl('kuwatify_logo.png')"
           width="170"
           class="mt-8 mb-4 filter drop-shadow-lg"
         />
