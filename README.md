@@ -1,4 +1,5 @@
 # Kuwatify
+
 <img src='./static/kuwatify_logo.png' width='170'>
 
 ## What is Kuwatify?
