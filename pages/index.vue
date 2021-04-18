@@ -5,6 +5,7 @@
         <youtube
           ref="youtube"
           :video-id="currentVideoId"
+          :player-vars="playerVars"
           width="100%"
           height="100%"
           @playing="setIsPlaying(true)"
@@ -50,6 +51,10 @@ import {
 } from '@nuxtjs/composition-api'
 import usePlayer from '../hooks/use-player'
 
+const playerVars = {
+  playsinline: 1,
+}
+
 export default defineComponent({
   setup() {
     const {
@@ -89,6 +94,7 @@ export default defineComponent({
       play,
       next,
       filteredVideos,
+      playerVars,
     }
   },
 })

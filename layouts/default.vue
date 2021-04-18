@@ -5,6 +5,7 @@
         <img
           :src="$baseUrl('kuwatify_logo.png')"
           width="170"
+          height="170"
           class="mt-8 mb-4 filter drop-shadow-lg"
         />
       </v-row>
