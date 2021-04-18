@@ -78,7 +78,7 @@ export default defineComponent({
 
         setVideos(data.items)
       },
-      ref(),
+      ref('videos'),
       'videos'
     )
 
