@@ -11,7 +11,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Kuwatifyで音楽を楽しもう！',
+      },
       { name: 'twitter:card', content: 'summary' },
       {
         name: 'twitter:site',
@@ -31,7 +35,7 @@ export default {
       },
       {
         property: 'og:image',
-        content: `${baseUrl}kuwatify_logo.png`,
+        content: 'https://noy4.github.io/kuwatify/kuwatify_logo.png',
       },
     ],
     link: [
