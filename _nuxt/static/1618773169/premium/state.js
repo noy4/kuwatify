@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a,b){return {staticAssetsBase:"\u002Fkuwatify\u002F_nuxt\u002Fstatic\u002F1618773169",layout:"default",error:a,serverRendered:true,routePath:"\u002Fpremium",config:{apiKey:void 0,baseUrl:b,_app:{basePath:b,assetsPath:"\u002Fkuwatify\u002F_nuxt\u002F",cdnURL:a},http:{browserBaseURL:"\u002F"}},globalRefs:{}}}(null,"\u002Fkuwatify\u002F"));
