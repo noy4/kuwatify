@@ -15,8 +15,12 @@ export default function usePlayer() {
     () => {
       setCurrent(0)
       state.filteredVideos = state.videos.filter((video) => {
-        const keywords = state.keywords || ''
-        return video.snippet.title.includes(keywords.normalize('NFD'))
+        const title = video.snippet.title.toLowerCase()
+        const keywords = state.keywords
+          ? state.keywords.normalize('NFD').toLowerCase()
+          : ''
+
+        return title.includes(keywords)
       })
     }
   )

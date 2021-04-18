@@ -1,4 +1,5 @@
 # Kuwatify
+<img src='./static/kuwatify_logo.png' width='170'>
 
 ## What is Kuwatify?
 
@@ -6,7 +7,6 @@ Kuwatifyの楽曲を聞くことができるよ
 
 ## Points
 
-- Nuxt.js
-- Composition API
+- Nuxt Composition API
 - YouTube Data API
 - Composition APIでVuexの代替にトライ（結果△）
