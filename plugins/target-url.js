@@ -1,7 +1,7 @@
-const API_KEY = 'AIzaSyDb2UIHVSuGIl2x6pzS5xEUYCg2JtNyxZ0'
+const API_KEY = 'AIzaSyDb2UIHVSuGIl2x6pzS5xEUYCg2JtNyxZ0' //諦めた
 const PLAYLIST_ID = 'PLd-lTb-XbZv3nY-wg_O5pnWValXX_v2rR'
 
-export default (_, inject) => {
+export default ({ $config: { apiKey } }, inject) => {
   const targetUrl = [
     'https://www.googleapis.com/youtube/v3/playlistItems',
     '?part=snippet',

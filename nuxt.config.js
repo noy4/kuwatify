@@ -54,4 +54,13 @@ export default {
       },
     },
   },
+
+  privateRuntimeConfig: {
+    apiKey: process.env.API_KEY,
+  },
+  publicRuntimeConfig: {
+    apiKey:
+      process.env.NODE_ENV !== 'production' ? process.env.API_KEY : undefined,
+    baseUrl,
+  },
 }
