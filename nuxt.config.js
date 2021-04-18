@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-const baseUrl = process.env.NODE_ENV !== 'production' ? '/kuwatify/' : '/'
+const baseUrl = process.env.NODE_ENV === 'production' ? '/kuwatify/' : '/'
 
 export default {
   target: 'static',
