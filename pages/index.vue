@@ -47,6 +47,7 @@ import {
   ref,
   useContext,
   useFetch,
+  useStatic,
 } from '@nuxtjs/composition-api'
 import usePlayer from '../hooks/use-player'
 
@@ -72,14 +73,15 @@ export default defineComponent({
 
     const { $http, $targetUrl } = useContext()
 
-    useFetch(async () => {
-      console.log($targetUrl)
+    useStatic(
+      async () => {
+        const data = await $http.$get($targetUrl)
 
-      const data = await $http.$get($targetUrl)
-      console.log(data)
-
-      setVideos(data.items)
-    })
+        setVideos(data.items)
+      },
+      ref(),
+      'videos'
+    )
 
     return {
       currentVideoId,
