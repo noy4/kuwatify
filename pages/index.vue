@@ -73,7 +73,10 @@ export default defineComponent({
     const { $http, $targetUrl } = useContext()
 
     useFetch(async () => {
+      console.log($targetUrl)
+
       const data = await $http.$get($targetUrl)
+      console.log(data)
 
       setVideos(data.items)
     })

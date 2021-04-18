@@ -3,10 +3,10 @@
     class="h-full flex items-center flex-col"
     :class="premium ? 'bg-gradient-to-r from-red-500 to-blue-500' : ''"
   >
-    <div class="w-48 h-48 mt-4 mb-2">
+    <div class="w-44 h-44 mt-4 mb-4">
       <v-img :src="$baseUrl('kuwatify_logo.png')" class="filter drop-shadow" />
     </div>
-    <h2 class="text-3xl font-bold filter drop-shadow mb-4">Kuwatify Premium</h2>
+    <h2 class="text-3xl font-bold filter drop-shadow mb-8">Kuwatify Premium</h2>
     <div class="w-full max-w-md px-1.5">
       <v-card>
         <v-card-text class="text-center whitespace-pre-line">{{
