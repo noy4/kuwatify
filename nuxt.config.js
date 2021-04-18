@@ -12,6 +12,27 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      { name: 'twitter:card', content: 'summary' },
+      {
+        name: 'twitter:site',
+        content: '@kuwappi_',
+      },
+      {
+        property: 'og:url',
+        content: 'https://noy4.github.io/kuwatify/',
+      },
+      {
+        property: 'og:title',
+        content: 'Kuwatify',
+      },
+      {
+        property: 'og:description',
+        content: 'Kuwatifyで音楽を楽しもう！',
+      },
+      {
+        property: 'og:image',
+        content: `${baseUrl}kuwatify_logo.png`,
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: `${baseUrl}favicon.ico` },
