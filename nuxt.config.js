@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
+const baseUrl = process.env.NODE_ENV !== 'production' ? '/kuwatify/' : '/'
+
 export default {
   target: 'static',
 
@@ -12,14 +14,14 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/kuwatify/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: `${baseUrl}favicon.ico` },
     ],
   },
 
   plugins: ['~/plugins/vue-youtube', '~/plugins/target-url'],
 
   router: {
-    base: '/kuwatify/',
+    base: baseUrl,
   },
 
   components: true,
@@ -48,6 +50,10 @@ export default {
         },
       },
     },
+  },
+
+  build: {
+    publicPath: '/static/',
   },
 
   privateRuntimeConfig: {
