@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer v-model="drawer" fixed app>
-      <v-row justify="center">
+      <v-row justify="center" align="center">
         <img
           :src="$baseUrl('kuwatify_logo.png')"
           width="170"

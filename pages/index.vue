@@ -84,7 +84,7 @@ export default defineComponent({
         setVideos(data.items)
       },
       ref('videos'),
-      'videos'
+      'index'
     )
 
     return {
