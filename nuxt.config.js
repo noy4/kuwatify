@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-const baseUrl = process.env.NODE_ENV === 'development' ? '/' : '/kuwatify/'
+const baseUrl = process.env.NODE_ENV === 'production' ? '/kuwatify/' : '/'
 
 export default {
   target: 'static',
@@ -53,14 +53,5 @@ export default {
         },
       },
     },
-  },
-
-  privateRuntimeConfig: {
-    apiKey: process.env.API_KEY,
-  },
-  publicRuntimeConfig: {
-    apiKey:
-      process.env.NODE_ENV === 'development' ? process.env.API_KEY : undefined,
-    baseUrl,
   },
 }

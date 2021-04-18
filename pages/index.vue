@@ -68,7 +68,6 @@ export default defineComponent({
 
     onMounted(() => {
       setPlayer(player)
-      console.log(process.env.NODE_ENV)
     })
 
     const { $http, $targetUrl } = useContext()
