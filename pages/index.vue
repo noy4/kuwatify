@@ -46,7 +46,6 @@ import {
   onMounted,
   ref,
   useContext,
-  useFetch,
   useStatic,
 } from '@nuxtjs/composition-api'
 import usePlayer from '../hooks/use-player'
