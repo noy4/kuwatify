@@ -35,7 +35,7 @@ export default {
       },
       {
         property: 'og:image',
-        content: 'https://noy4.github.io/kuwatify/kuwatify_logo.png',
+        content: 'https://noy4.github.io/kuwatify/kuwatify_app.png',
       },
     ],
     link: [
