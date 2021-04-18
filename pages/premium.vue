@@ -7,7 +7,7 @@
       <v-img :src="$baseUrl('kuwatify_logo.png')" class="filter drop-shadow" />
     </div>
     <h2 class="text-3xl font-bold filter drop-shadow mb-8">Kuwatify Premium</h2>
-    <div class="w-full max-w-md px-1.5">
+    <div class="w-full max-w-md px-1.5 pb-8">
       <v-card>
         <v-card-text class="text-center whitespace-pre-line">{{
           text
