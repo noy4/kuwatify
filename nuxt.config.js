@@ -40,6 +40,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: `${baseUrl}favicon.ico` },
+      { rel: 'apple-touch-icon', href: `${baseUrl}kuwatify_app.png` },
     ],
   },
 
